@@ -1,6 +1,7 @@
 var timer;
 var selectedTime;
 const restartButton = document.getElementById("restart");
+let timeoutId;
 
 document.addEventListener('DOMContentLoaded', function () {
  
@@ -82,21 +83,21 @@ function updateTime() {
 }
 
 function startOm() {
-    clearInterval(timer); 
-    startTimer();
+  clearInterval(timer);
+  clearInterval(timeoutId); 
+  startTimer();
 
-    const frontViews = document.querySelectorAll('.front-view');
-    const backViews = document.querySelectorAll('.back-view');
+  const frontViews = document.querySelectorAll('.front-view');
+  const backViews = document.querySelectorAll('.back-view');
 
-    frontViews.forEach(view => {
-      view.style.display = 'block';
-    });
+  frontViews.forEach(view => {
+    view.style.display = 'block';
+  });
 
-    backViews.forEach(view => {
-      view.style.display = 'none';
-    });
-  }
-
+  backViews.forEach(view => {
+    view.style.display = 'none';
+  });
+}
 
 
 
