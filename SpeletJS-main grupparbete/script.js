@@ -46,10 +46,7 @@ document.addEventListener('DOMContentLoaded', function () {
       // Kontrollera om alla kort har matchats
       if (document.querySelectorAll('.matched').length === cards.length) {
         alert('Grattis du klarade spelet!');
-        
-        matchedCards.forEach(card => {
-          card.classList.remove('matched');
-        });
+        clearInterval(timer); 
       }
     } else {
       // Ingen matchning: vänd tillbaka korten
@@ -99,6 +96,13 @@ function startOm() {
     backViews.forEach(view => {
       view.style.display = 'none';
     });
+
+    const matchedCards = document.querySelectorAll('.matched');
+    matchedCards.forEach(card => {
+    card.classList.remove('matched');
+  });
+
+    
   }
  
  
