@@ -30,35 +30,36 @@ document.addEventListener('DOMContentLoaded', function () {
     if (flippedCards.length === 2) {
       setTimeout(checkMatch, 1000);
     }
-    function checkMatch() {
-        const [card1, card2] = flippedCards;
-        const img1 = card1.querySelector('.img-back6').src;
-        const img2 = card2.querySelector('.img-back1').src;
-   
-        if (img1 === img2) {
-          // Matchning: lägg till klassen för matchade kort
-          card1.classList.add('matched');
-          card2.classList.add('matched');
-   
-          // Kontrollera om alla kort har matchats
-          if (document.querySelectorAll('.matched').length === cards.length) {
-            alert('Congratulations! You matched all the cards.');
-          }
-        } else {
-          // Ingen matchning: vänd tillbaka korten
-          setTimeout(() => {
-            card1.querySelector('.front-view').style.display = 'block';
-            card1.querySelector('.back-view').style.display = 'none';
-            card2.querySelector('.front-view').style.display = 'block';
-            card2.querySelector('.back-view').style.display = 'none';
-          }, 500);
-        }
-   
-        // Återställ flippedCards-arrayen
-        flippedCards = [];
-    }
+
  
   }
+  function checkMatch() {
+    const [card1, card2] = flippedCards;
+    const img1 = card1.querySelector('.img-back6').src;
+    const img2 = card2.querySelector('.img-back1').src;
+
+    if (img1 === img2) {
+      // Matchning: lägg till klassen för matchade kort
+      card1.classList.add('matched');
+      card2.classList.add('matched');
+
+      // Kontrollera om alla kort har matchats
+      if (document.querySelectorAll('.matched').length === cards.length) {
+        alert('Congratulations! You matched all the cards.');
+      }
+    } else {
+      // Ingen matchning: vänd tillbaka korten
+      setTimeout(() => {
+        card1.querySelector('.front-view').style.display = 'block';
+        card1.querySelector('.back-view').style.display = 'none';
+        card2.querySelector('.front-view').style.display = 'block';
+        card2.querySelector('.back-view').style.display = 'none';
+      }, 500);
+    }
+
+    // Återställ flippedCards-arrayen
+    flippedCards = [];
+}
 });
 
 function updateTime() {
