@@ -195,3 +195,5 @@ function startTimer() {
  
 updateTime();
 startTimer();
+
+NiceSelect.bind(document.getElementById("timeDropdown"));
